@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html ng-app="proj1">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Sound and sight</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap-css/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap-css/css/bootstrap-theme.min.css' %}">
+
+    <script type="text/javascript" src="{% static 'bower_components/angular/angular.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bower_components/angular-route/angular-route.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/proj1.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/proj1.config.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/proj1.routes.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/authentication/authentication.module.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/authentication/services/authentication.service.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/authentication/controllers/register.controller.js' %}"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                {% block nav-home %}<a href="{% url 'index' %}" class="navbar-brand"><span class="glyphicon glyphicon-headphones"></span>Sound and sight</a>{% endblock %}
+            </div>
+            <div class="collapse navbar-collapse">
+                {% block nav %}
+                <ul class="nav navbar-nav">
+                    <li>
+                        {% block nav-about %}
+                            <a href="{% url 'about' %}">About</a>
+                        {% endblock %}
+                    </li>
+                    <li>
+                        {% block nav-contact %}
+                            <a href="{% url 'contact' %}">Contact</a>
+                        {% endblock %}
+                    </li>
+                </ul>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    </nav>
+
+
+    <div class="container">
+        {% block content %}
+
+        {% endblock content %}
+        <hr>
+
+        <footer>
+            <p style="margin: 0 0 10px 0">2015 Sound And Sight ©</p>
+        </footer>
+    </div>
+</body>
+</html>

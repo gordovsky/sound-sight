@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+        {%  for point in points %}
+        <p class="">Title: {{ point.title }}</p>
+        <p>created {{ point.created_date }}</p>
+        <p>latitude: {{ point.latitude }}, longitude: {{ point.longitude }}</p>
+        {% endfor %}
+{% endblock content %}
